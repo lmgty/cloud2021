@@ -11,6 +11,23 @@ spring:
     url: jdbc:mysql://localhost:3306/cloud?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
     username: root
     password: root
+eureka:
+  client:
+    #表示向注册中心注册自己 默认为true
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息，默认为 true
+    # 单节点无所谓,集群必须设置为 true 才能配合 ribbon 使用负载均衡
+    fetch-registry: true
+    service-url:
+      # 入驻地址
+      defaultZone: http://localhost:7001/eureka/
+#  instance:
+#    instance-id: payment8001
+#    prefer-ip-address: true
+  #    lease-renewal-interval-in-seconds: 1 # eureka客户端向服务端发送心跳的时间间隔 单位秒 默认30
+  #    lease-expiration-duration-in-seconds: 2 # eureka
+
+
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
